@@ -1,5 +1,3 @@
-// app/comment/[id]/page.tsx
-import React from 'react'
 import { getCommentById } from '@/services/api.service'
 
 const PostPage = async ({ params }: { params: { id: string } }) => {

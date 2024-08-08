@@ -1,6 +1,3 @@
-import React from 'react'
-import { Metadata } from 'next'
-
 type Props = { children: React.ReactNode }
 
 const UsersLayout = ({ children }: Props) => {

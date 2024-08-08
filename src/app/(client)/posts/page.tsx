@@ -1,4 +1,3 @@
-import React from 'react'
 import { getAllPosts } from '@/services/api.service'
 import Link from 'next/link'
 

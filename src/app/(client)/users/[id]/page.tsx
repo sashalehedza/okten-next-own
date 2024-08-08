@@ -1,5 +1,3 @@
-// app/users/[id]/page.tsx
-import React from 'react'
 import { getUserById, getUserPosts } from '@/services/api.service'
 import Link from 'next/link'
 

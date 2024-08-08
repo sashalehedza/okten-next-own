@@ -1,5 +1,3 @@
-// pages/users/index.tsx
-import React from 'react'
 import { getAllUsers } from '@/services/api.service'
 import Link from 'next/link'
 
