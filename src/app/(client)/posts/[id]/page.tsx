@@ -1,6 +1,6 @@
 // app/posts/[id]/page.tsx
 import React from 'react'
-// import { getPostById, getPostComments } from '@/services/api.service'
+//import { getPostById, getPostComments } from '@/services/api.service'
 import { getPostById, getPostComments } from '../../../../services/api.service'
 
 const PostPage = async ({ params }: { params: { id: string } }) => {
