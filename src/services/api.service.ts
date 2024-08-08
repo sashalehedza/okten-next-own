@@ -16,13 +16,6 @@ export const getUserById = async (id: string): Promise<User> => {
   return response
 }
 
-export const getUserPosts = async (id: string): Promise<Post[]> => {
-  let response = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${id}/posts`
-  ).then((value) => value.json())
-  return response
-}
-
 export const getAllPosts = async (): Promise<Post[]> => {
   let response = await fetch('https://jsonplaceholder.typicode.com/posts').then(
     (value) => value.json()
@@ -37,13 +30,6 @@ export const getPostById = async (id: string): Promise<Post> => {
   return response
 }
 
-export const getPostComments = async (id: string): Promise<Comment[]> => {
-  let response = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${id}/comments`
-  ).then((value) => value.json())
-  return response
-}
-
 export const getAllComments = async (): Promise<Comment[]> => {
   let response = await fetch(
     `https://jsonplaceholder.typicode.com/comments`
@@ -54,6 +40,20 @@ export const getAllComments = async (): Promise<Comment[]> => {
 export const getCommentById = async (id: string): Promise<Comment> => {
   let response = await fetch(
     `https://jsonplaceholder.typicode.com/comments/${id}`
+  ).then((value) => value.json())
+  return response
+}
+
+export const getPostComments = async (id: string): Promise<Comment[]> => {
+  let response = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${id}/comments`
+  ).then((value) => value.json())
+  return response
+}
+
+export const getUserPosts = async (id: string): Promise<Post[]> => {
+  let response = await fetch(
+    `https://jsonplaceholder.typicode.com/users/${id}/posts`
   ).then((value) => value.json())
   return response
 }
