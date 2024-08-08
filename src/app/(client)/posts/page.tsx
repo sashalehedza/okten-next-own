@@ -1,5 +1,6 @@
 import React from 'react'
 import { getAllPosts } from '@/services/api.service'
+import Link from 'next/link'
 
 const PostsPage = async () => {
   let posts = await getAllPosts()
@@ -7,7 +8,9 @@ const PostsPage = async () => {
   return (
     <div>
       {posts.map((post: any) => (
-        <div key={post.id}>{post.title}</div>
+        <div key={post.id}>
+          <Link href={`/posts/${post.id}`}>{post.title}</Link>
+        </div>
       ))}
     </div>
   )
