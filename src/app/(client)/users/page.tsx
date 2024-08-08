@@ -1,25 +1,22 @@
-import React from 'react';
-import {getAllUsers} from "@/services/api.service";
-import Link from "next/link";
+// pages/users/index.tsx
+import React from 'react'
+import { getAllUsers } from '@/services/api.service'
+import Link from 'next/link'
 
 const UsersPage = async () => {
+  const allUsers = await getAllUsers()
 
-    let allUsers = await getAllUsers();
+  return (
+    <div>
+      <ul>
+        {allUsers.map((user: any) => (
+          <li key={user.id}>
+            <Link href={`/users/${user.id}`}>{user.username}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
 
-    return (
-        <div>
-            <ul>
-
-                {
-                    allUsers.map(value => <li key={value.id}>
-                        <Link href={{pathname: '/users/' + value.id, query: {data: JSON.stringify(value)}}}>{value.username}</Link>
-                    </li>)
-
-
-                }
-            </ul>
-        </div>
-    );
-};
-
-export default UsersPage;
+export default UsersPage

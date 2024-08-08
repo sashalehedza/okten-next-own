@@ -1,14 +1,26 @@
-import React from 'react';
+// app/users/[id]/page.tsx
+import React from 'react'
+import { getUserById, getUserPosts } from '@/services/api.service'
+import Link from 'next/link'
 
+const UserPage = async ({ params }: { params: { id: string } }) => {
+  const user = await getUserById(params.id)
+  const posts = await getUserPosts(params.id)
 
-const UserPage = ({searchParams}: any) => {
-    let user = JSON.parse(searchParams.data);
-    console.log(user);
-    return (
-        <div>
-            {user.email}
-        </div>
-    );
-};
+  return (
+    <div>
+      <h1>{user.username}</h1>
+      <p>Email: {user.email}</p>
+      <h2>Posts by {user.username}:</h2>
+      <ul>
+        {posts.map((post: any) => (
+          <li key={post.id}>
+            <Link href={`/posts/${post.id}`}>{post.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
 
-export default UserPage;
+export default UserPage
